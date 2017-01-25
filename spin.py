@@ -344,7 +344,7 @@ class Interface(QtGui.QWidget):
                     orientation = orientation
                 ))
                 engage_command(
-                    "xinput set-prop \"{name_device}\" \"Coordinate "
+                    "xinput --set-prop \"{name_device}\" \"Coordinate "
                     "Transformation Matrix\" "
                     "{matrix}".format(
                         name_device = self.names_devices["touchscreen"],
@@ -376,7 +376,7 @@ class Interface(QtGui.QWidget):
                     status = status
                 ))
                 engage_command(
-                    "xinput {status} \"{name_device}\"".format(
+                    "xinput --{status} \"{name_device}\"".format(
                         status = status_xinput[status],
                         name_device = self.names_devices["touchscreen"]
                     )
@@ -409,7 +409,7 @@ class Interface(QtGui.QWidget):
                     orientation = orientation
                 ))
                 engage_command(
-                    "xinput set-prop \"{name_device}\" \"Coordinate "
+                    "xinput --set-prop \"{name_device}\" \"Coordinate "
                     "Transformation Matrix\" "
                     "{matrix}".format(
                         name_device = self.names_devices["touchpad"],
@@ -441,7 +441,7 @@ class Interface(QtGui.QWidget):
                     status = status
                 ))
                 engage_command(
-                    "xinput {status} \"{name_device}\"".format(
+                    "xinput --{status} \"{name_device}\"".format(
                         status = status_xinput[status],
                         name_device = self.names_devices["touchpad"]
                     )
@@ -472,7 +472,7 @@ class Interface(QtGui.QWidget):
                     status = status
                 ))
                 engage_command(
-                    "xinput {status} \"{name_device}\"".format(
+                    "xinput --{status} \"{name_device}\"".format(
                         status     = status_xinput[status],
                         name_device = self.names_devices["nipple"]
                     )
@@ -494,7 +494,7 @@ class Interface(QtGui.QWidget):
         ):
         self.previous_stylus_proximity_status = None
         while True:
-            stylus_proximity_command = "xinput query-state "                +\
+            stylus_proximity_command = "xinput --query-state "                +\
                                      "\"Wacom ISDv4 EC Pen stylus\" | "     +\
                                      "grep Proximity | cut -d \" \" -f3 | " +\
                                      " cut -d \"=\" -f2"
